@@ -74,10 +74,6 @@ public class Borrar {
                 // Si el autor existe, obtener su DNI
                 String dniAutor = resultado.getString("DNI");
 
-                // Eliminar los libros asociados al autor
-                sentencia.executeUpdate("DELETE FROM Libros WHERE Autor = '" + dniAutor + "'");
-                System.out.println("Libros del autor eliminados correctamente.");
-
                 // Eliminar al autor
                 sentencia.executeUpdate("DELETE FROM Autores WHERE Nombre = '" + nombreAutor + "'");
                 System.out.println("Autor eliminado correctamente.");

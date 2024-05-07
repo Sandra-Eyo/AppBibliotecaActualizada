@@ -18,9 +18,9 @@ public class CreacionBD {
 
             // Creación de la tabla Autores:
             sentencia.execute("CREATE TABLE IF NOT EXISTS Autores ("
-                    + "DNI VARCHAR(9) PRIMARY KEY,"
-                    + "Nombre VARCHAR(30),"
-                    + "Nacionalidad VARCHAR(30))");
+                    + "DNI VARCHAR(9) NOT NULL PRIMARY KEY,"
+                    + "Nombre VARCHAR(30) NOT NULL,"
+                    + "Nacionalidad VARCHAR(30) NOT NULL)");
 
             // Creación de la tabla Libros:
             sentencia.execute("CREATE TABLE IF NOT EXISTS Libros ("
@@ -28,7 +28,9 @@ public class CreacionBD {
                     + "Titulo VARCHAR(30),"
                     + "Precio FLOAT,"
                     + "Autor VARCHAR(9),"
-                    + "FOREIGN KEY (Autor) REFERENCES Autores(DNI))");
+                    + "FOREIGN KEY (Autor) REFERENCES Autores(DNI)"
+                    + "ON DELETE CASCADE " //Para que se eliminen las claves foraneas
+                    + "ON UPDATE CASCADE)");
         }
         catch(SQLException e)
         {
