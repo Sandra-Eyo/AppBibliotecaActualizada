@@ -48,21 +48,22 @@ public class Consultas {
         try {
             // Consultar el libro por título
             ResultSet resultado = sentencia.executeQuery("SELECT * FROM Libros WHERE Titulo = '" + tituloLibro + "'");
-
+            //ResultSet guarda el resultado de la query en una especie de array sin indices(por referencias)
             if (resultado.next()) {
                 // Si se encuentra el libro, mostrar sus detalles
                 String titulo = resultado.getString("Titulo");
+                //System.out.println("Titulo: " + resultado.getString("titulo")); //Para directamente printear el resultado del resultset
                 float precio = resultado.getFloat("Precio");
-                String autorDNI = resultado.getString("Autor");
+                //String autorDNI = resultado.getString("Autor");
 
-                // Obtener el nombre del autor utilizando el DNI del libro
-                ResultSet resultadoAutor = sentencia.executeQuery("SELECT Nombre FROM Autores WHERE DNI = '" + autorDNI + "'");
-                resultadoAutor.next();
-                String nombreAutor = resultadoAutor.getString("Nombre");
+                // Obtener el nombre del autor utilizando el DNI del libro //El AUTOR NO HACE FALTA
+                //ResultSet resultadoAutor = sentencia.executeQuery("SELECT Nombre FROM Autores WHERE DNI = '" + autorDNI + "'");
+                //resultadoAutor.next();
+                //String nombreAutor = resultadoAutor.getString("Nombre");
 
                 System.out.println("Título: " + titulo);
                 System.out.println("Precio: " + precio);
-                System.out.println("Autor: " + nombreAutor);
+                //System.out.println("Autor: " + nombreAutor);
             } else {
                 // Si no se encuentra el libro, mostrar un mensaje de error
                 System.out.println("No se encontró ningún libro con el título '" + tituloLibro + "'.");

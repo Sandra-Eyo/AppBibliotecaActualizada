@@ -42,7 +42,7 @@ public class Insertar {
         String nacionalidad = sc.nextLine();
         sc = new Scanner(System.in);
 
-        try {
+        try {//alt+shift+z
             sentencia.executeUpdate("INSERT INTO Autores (DNI, Nombre, Nacionalidad) VALUES('" + dni + "', '" + nombre + "', '" + nacionalidad + "')");
         } catch (SQLException e) {
             System.err.println("Se ha producido un error al insertar el nuevo autor");

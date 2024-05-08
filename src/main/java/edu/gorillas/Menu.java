@@ -15,7 +15,7 @@ public class Menu {
                 + "[4] Consultar\n"
                 + "[5] Exit\n");
         op = sc.nextInt();
-        sc.nextLine();
+        sc.nextLine();//Consume el salto de linea pendiente
 
         return op;
     }
